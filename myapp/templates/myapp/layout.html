@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PSYHelpers{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+</head>
+<body class="bg-indigo-400">
+    <nav class="flex items-center justify-between px-6 py-2 bg-indigo-600">
+        <div>
+            <a href="/" class="text-xl text-white hover:animate-spin transition-all duration-1000">PSYHelpers</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            {% if request.user.is_authenticated %}
+                <p class="text-white mx-9 font-bold">{{ request.user.username}}</p>
+                <a href="/rooms/" class="text-white hover:animate-bounce transition-all duration-1000">Rooms</a>
+                <a href="/logout/" class="text-white hover:animate-bounce transition-all duration-1000 rounded-xl bg-indigo-800 px-6 py-2">Log Out</a>
+            {% else %}
+                <a href="/login/" class="text-white hover:animate-bounce transition-all duration-1000">Log In</a>
+                <a href="/signup/" class="text-white hover:animate-bounce transition-all duration-1000 rounded-xl bg-indigo-800 px-6 py-2">Sign Up</a>
+            {% endif %}
+            
+        </div>
+    </nav>
+
+    {% block main %}
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+</html>

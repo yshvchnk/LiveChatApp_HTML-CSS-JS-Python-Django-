@@ -1,0 +1,20 @@
+#messages {
+    height: 50vh;
+    overflow-y: auto;
+}
+
+#img-main {
+    height: 30vh;
+}
+
+#img-main > img {
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.button-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
